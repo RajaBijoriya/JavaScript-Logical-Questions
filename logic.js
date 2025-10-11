@@ -86,7 +86,26 @@
 //  Given a string, capitalize the first letter of each word.
 //     Example: Input: "hello world" → Output: "Hello World"
 
+let str = "hello world";
+let str2 = "";
 
+for(let i=0; i<str.length; i++){
+  
+    if(i === 0){
+        let val = str[i].toLocaleUpperCase()
+        
+        str2 = str2+val;
+    }
+    if(str[i] === " "){
+        let val = str[i+1].toLocaleUpperCase()
+
+        str2 = str2 + " " + val;
+    }
+    else{
+        str2 = str2+ str[i];
+    }
+}
+console.log(str2)
 
 
 
@@ -104,12 +123,23 @@
 //  Given a number, return true if it is a power of two.
 //     Example: Input: 16 → Output: true
 
-// const PowerOfTwo = (n) => {
+// const PowerTwo = (n) => {
+
+//    while(n%2 === 0){
+//     if(n===1){
+//         break;
+//     }
+//     n = n/2;
+//    }
+//    if(n===1){
+//     return true;
+//    }
+//    return false;
+
+
 
 // }
-
-
-
+// console.log(PowerTwo(6))
 
 
 
@@ -525,7 +555,7 @@
 //  11. Rotate Array
 //  Given an array and a number k , rotate the array to the right by k
 //  steps.
-//  Example: Input: [1, 2, 3, 4, 5], k = 2 → Output: [4, 5, 1, 2, 3
+//  Example: Input: [1, 2, 3, 4, 5], k = 2 → Output: [4, 5, 1, 2, 3]
 
 
 
