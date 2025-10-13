@@ -1,3 +1,231 @@
+// 41. Counter Closure
+//  Create a function that returns a counter function, incrementing by 1
+// each call.
+//     Example: let counter = createCounter(); counter(); → Output: 1,
+//         counter(); → 2
+
+
+// 40. Intersection of Multiple Arrays
+//  Given multiple arrays, return an array of elements common to all arrays.
+//     Example: Input: [[1, 2, 3], [2, 3, 4], [2, 3, 5]] → Output: [2, 3]
+
+// let arr = [[1, 2, 3], [2, 3, 4], [2, 3, 5]];
+// let obj = {};
+// for(let i=0; i<arr.length; i++){
+    
+//     for(let j=0; j<arr[i].length; j++){
+//        if(obj[arr[i][j]]) obj[arr[i][j]]++;
+//        else{
+//            obj[arr[i][j]] = 1;
+//        }
+//     }
+// }
+
+// let arr1 = []
+// for(let i in obj){
+//     if(obj[i] === arr.length){
+//         arr1.push(+i)
+//     }
+// }
+// console.log(arr1)
+
+
+
+
+
+
+
+
+
+
+
+
+
+// 39. Top K Frequent Elements
+//  Given an array of numbers, return the k most frequent elements.
+//     Example: Input: [1, 1, 1, 2, 2, 3], k = 2 → Output: [1, 2]
+
+// let arr = [1, 1, 1, 2, 2, 3,3,3,3,3] 
+// let k = 2;
+// let val = [];
+// let obj = {}
+// for(let i=0; i<arr.length; i++){
+//     let count = 0;
+//     for(let j=0; j<arr.length; j++){
+//         if(arr[i] === arr[j]) count++;
+//     }
+//     if(count>1){
+//         if (obj[arr[i]]) continue;
+//         else {
+//             obj[arr[i]] = count;
+//             val.push(arr[i])
+//         }
+//     }
+
+// }
+// console.log(val)
+// val.sort((a,b) => a-b)
+// console.log(val)
+// console.log(val[0], val[1])
+// console.log(obj)
+
+
+
+
+
+
+
+
+
+
+
+
+
+// 38. First Unique Character in Object
+//  Using an object, find the first unique character in a string.
+//     Example: Input: "loveleetcode" → Output: 2(character: v)
+
+// let str = "loveleetcode";
+// const FirstUnique = (str) => {
+//     for(let i=0; i<str.length; i++){
+//         let count = 0;
+//         for(let j=0; j<str.length; j++){
+//             if(str[i] === str[j]) count++;
+//         }
+//         if(count === 1){
+//             return str[i];
+//         }
+//     }
+// }
+
+// console.log(FirstUnique(str))
+
+
+
+
+
+
+
+// 37. Valid Anagram
+//  Given two strings, check if one is an anagram of the other.
+//     Example: Input: "anagram", "nagaram" → Output: true
+
+
+// let str1 = "anagram";
+// let str2 = "nagaram";
+
+
+// const isAnagram = (str1, str2) => {
+
+//       if(str1.length !== str2.length) return false;
+//       for(let i=0; i<str1.length; i++){
+
+//       }
+
+// }
+
+
+
+
+
+
+
+
+
+
+
+// 36. Word Frequency
+//  Given a string, return an object with the frequency of each word.
+//     Example: Input: "hello world hello" → Output: {
+//         hello: 2, world: 1
+//     }
+
+
+// let str = "hello world hello"
+// let obj = {};
+
+// let str2 = str.split(" ");
+// // console.log(str.split(" "))
+// for(let i=0; i<str2.length; i++){
+//     let count = 0;
+//    for(let j=0; j<str2.length; j++){
+//     if(str2[i] === str2[j]){
+//         count++;
+//     }
+
+//    }
+//    obj[str2[i]] = count;
+// //    obj[i] = str2[i];
+// }
+
+// console.log(obj)
+
+
+
+
+
+
+
+
+
+
+// 35. Search in Rotated Sorted Array
+//  Given a sorted array rotated at some point, find if a target number
+// exists.
+//     Example: Input: [4, 5, 6, 7, 0, 1, 2], target = 0 → Output: 4
+
+// let arr = [4, 5, 6, 7, 0, 1, 2];
+// let target = 0;
+
+// for(let i=0; i<arr.length; i++){
+//     if(arr[i] === target){
+//         console.log(i);
+//     }
+// }
+
+
+
+
+
+
+
+// 34. Remove Element
+//  Given an array and a value, remove all instances of that value and
+// return the new length.
+//     Example: Input: [3, 2, 2, 3], val = 3 → Output: 2(array becomes
+//     [2, 2])
+
+// let arr = [3, 2, 2, 3];
+// let arr1 = [];
+// let val = 3;
+// for(let i=0; i<arr.length; i++){
+//   if(arr[i] === val) continue;
+//   else{
+//     arr1.push(arr[i]);
+//   }
+// }
+
+// console.log(arr1.length)
+
+
+
+
+
+
+
+
+
+
+// 33. Maximum Subarray
+//  Given an array of numbers, find the contiguous subarray with the
+//  largest sum.
+//     Example: Input: [-2, 1, -3, 4, -1, 2, 1, -5, 4] → Output: 6
+//         (subarray: [4, -1, 2, 1])
+
+
+
+
+
 // 32. Merge Sorted Arrays
 //  Merge two sorted arrays into a single sorted array.
 //     Example: Input: [1, 3, 5], [2, 4, 6] → Output: [1, 2, 3, 4, 5, 6]
@@ -18,35 +246,101 @@
 // console.log(arr)
 
 
+// 31. Two Sum II
+//  Given a sorted array of numbers and a target sum, find two numbers
+//  that add up to the target.Return their indices.
+//     Example: Input: [2, 7, 11, 15], target = 9 → Output: [1, 2]
 
 
+// let arr = [2, 8, 4, 5, 11, 15] 
+// let target = 9;
+// let arr1 = [];
+
+// for(let i=0; i<arr.length; i++){
+//     for(let j=i+1; j<arr.length; j++){
+//        if(arr[i]+arr[j] === target){
+//         arr1.push(i);
+//         arr1.push(j);
+//        }
+//     }
+// }
 
 
-
-
-
-
-
-
-
+// console.log(arr1)
 
 // 27. Group Anagrams
 //  Given an array of strings, group all anagrams together.
 //     Example: Input: ["eat", "tea", "tan", "ate", "nat", "bat"] →
 // Output: [["eat", "tea", "ate"], ["tan", "nat"], ["bat"]]
+
+// let str = ["eat", "tea", "tan", "ate", "nat", "bat"];
+// let str1 = [];
+
+// for(let i=0; i<str.length; i++){
+
+// }
+
+
+
+
+
 // 28. Longest Palindromic Substring
 //  Given a string, find the longest substring that is a palindrome.
 //     Example: Input: "babad" → Output: "bab" or "aba"
+
+
+
+
+
+
 // 29. Valid Parentheses
 //  Given a string containing parentheses, check if they are valid(properly
 //  nested).
 //     Example: Input: "()[]{}" → Output: true
+
+// let str = "(()())[]{}";
+// let count = 0;
+// for(let i=0; i<str.length; i++){
+//     if(str[i] == "(" || str[i] == ")") count++
+//     if(str[i] == "[" || str[i] == "]") count++
+//     if(str[i] == "{" || str[i] == "}") count++
+// }
+// if(count%2===0){
+//     console.log("Valid");
+// }
+// else{
+//     console.log("Invalid")
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
 // 30. String Compression
 //  Given a string, compress it by counting consecutive characters.
 //     Example: Input: "aabcccccaaa" → Output: "a2b1c5a3"
 
 
+// let str = "aabcccccaaa";
+// let str2 = "";
 
+// for(let i=0; i<str.length; i++){
+//     let count = 0;
+//     for(let j=0; j<str.length; j++){
+//         if(str[i] === str[j]) count++;
+//     }
+    
+//     str2 = str2+str[i]+count;
+// }
+// console.log(str2)
 
 
 
@@ -86,26 +380,24 @@
 //  Given a string, capitalize the first letter of each word.
 //     Example: Input: "hello world" → Output: "Hello World"
 
-let str = "hello world";
-let str2 = "";
+// let str = "hello world my raja";
 
-for(let i=0; i<str.length; i++){
+
+// for(let i=0; i<str.length; i++){
   
-    if(i === 0){
-        let val = str[i].toLocaleUpperCase()
+//     if(i === 0){
+//         let val = str[i].toLocaleUpperCase()
         
-        str2 = str2+val;
-    }
-    if(str[i] === " "){
-        let val = str[i+1].toLocaleUpperCase()
-
-        str2 = str2 + " " + val;
-    }
-    else{
-        str2 = str2+ str[i];
-    }
-}
-console.log(str2)
+//         str = str.replace(str[i], val)
+//     }
+//     if(str[i] === " "){
+//         let val = str[i+1].toLocaleUpperCase();
+     
+//         str = str.replace(str[i+1], val)
+//     }
+   
+// }
+// console.log(str)
 
 
 
