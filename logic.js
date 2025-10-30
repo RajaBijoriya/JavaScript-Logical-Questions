@@ -1,8 +1,122 @@
+// 47. Async Sum
+//  Given an array of async functions returning numbers, compute their
+//  sum.
+//  Example: Input: [async () => 1, async () => 2] → Output: 3
+
+
+// let arr = [async () => 1, async () => 2];
+// let sum = 0;
+// async function SUM(arr) {
+//     for (let i = 0; i < arr.length; i++) {
+//         sum = sum + await arr[i]();
+//     }
+//     // console.log(sum)
+//     return sum
+// }
+
+// SUM(arr).then(val => console.log(val))
+
+
+
+
+
+
+
+
+
+// let arr = [async () => 1, async () => 2];
+
+// async function asyncSum(functions) {
+//     let sum = 0;
+//     for (let fn of functions) {
+//         sum += await fn(); // call and await each async function
+//     }
+//     return sum;
+// }
+
+// asyncSum(arr).then(result => console.log(result)); // Output: 3
+
+
+
+
+
+
+
+
+
+
+
+// 46. Promise Delay
+//  Write a function that returns a promise resolving after a specified delay.
+//     Example: delay(1000).then(() => console.log("Done")) → Logs after 1
+// second.
+
+// const delay = (delayTime) => {
+//     const promise = new Promise((resolve, reject) => {
+//        setTimeout(() => {
+//         resolve()
+//        }, delayTime)
+//     });
+//     return promise;
+// }
+
+// delay(3000).then(() => console.log("Done"))
+
+
+
+
+
+
+
+
+
+
+
+// 45. Curry Function
+//  Implement a function that curries another function.
+// Example: Input: curry(sum)(1)(2)(3) → Output: 6
+
+
+// const curry = (a) =>{
+   
+//     return (b) => {
+//         return (c) => {
+//             return a+b+c
+//         }
+//     }
+   
+// }
+
+// console.log(curry(1)(2)(3))
+
+
+
+
+
+
+
+
+
+
+
+
 // 41. Counter Closure
 //  Create a function that returns a counter function, incrementing by 1
 // each call.
 //     Example: let counter = createCounter(); counter(); → Output: 1,
 //         counter(); → 2
+
+// const counter = () => {
+//     return 
+// }
+
+
+
+
+
+
+
+
 
 
 // 40. Intersection of Multiple Arrays
