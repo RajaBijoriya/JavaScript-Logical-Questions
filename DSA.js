@@ -478,19 +478,11 @@
 // 14. Nested Object Flattening
 // Given a nested object, flatten it into dot notation keys.
 
-// let obj = { a: 1, b: { c: 2, d: { e: 3 } } };
+let obj = { a: 1, b: { c: 2, d: { e: 3 } } };
+const nestObj = (obj) => {
+    
+}
 
-// const flattenObject = (obj, parentKey = '', res = {}) => {
-//     return Object.entries(obj).reduce((acc, [key, value]) => {
-//         const newKey = parentKey ? `${parentKey}.${key}` : key;
-//         if (typeof value === 'object' && value !== null) {
-//             flattenObject(value, newKey, acc);
-//         } else {
-//             acc[newKey] = value;
-//         }
-//         return acc;
-//     }, res);
-// };
 
 // let flattened = flattenObject(obj);
 // console.log(flattened);
@@ -505,4 +497,21 @@
 
 
 // let obj = {a: 1, b: 2, c: 3};
-// let obj1 = {a: 1, b: 3};
+// let obj1 = {a: 1, b: 3, d : 4};
+// let ret = {};
+// // for(let val in obj){
+// //     if(obj[val] !== obj1[val]) 
+// //      ret[val] = obj1[val];
+// // }
+// // console.log(ret)
+
+// let keys = new Set([...Object.keys(obj), ...Object.keys(obj1)])
+// console.log(keys)
+
+// for(let val of keys){
+//     if(obj[val] !== obj1[val]){
+//         ret[val] = obj1[val] !== undefined ? obj1[val]: obj[val];
+//     }
+// }
+
+// console.log(ret)

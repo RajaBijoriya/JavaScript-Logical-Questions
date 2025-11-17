@@ -3,7 +3,6 @@
 //  sum.
 //  Example: Input: [async () => 1, async () => 2] → Output: 3
 
-
 // let arr = [async () => 1, async () => 2];
 // let sum = 0;
 // async function SUM(arr) {
@@ -16,14 +15,6 @@
 
 // SUM(arr).then(val => console.log(val))
 
-
-
-
-
-
-
-
-
 // let arr = [async () => 1, async () => 2];
 
 // async function asyncSum(functions) {
@@ -35,16 +26,6 @@
 // }
 
 // asyncSum(arr).then(result => console.log(result)); // Output: 3
-
-
-
-
-
-
-
-
-
-
 
 // 46. Promise Delay
 //  Write a function that returns a promise resolving after a specified delay.
@@ -62,33 +43,88 @@
 
 // delay(3000).then(() => console.log("Done"))
 
-
-
-
-
-
-
-
-
-
-
 // 45. Curry Function
 //  Implement a function that curries another function.
 // Example: Input: curry(sum)(1)(2)(3) → Output: 6
 
-
 // const curry = (a) =>{
-   
+
 //     return (b) => {
 //         return (c) => {
 //             return a+b+c
 //         }
 //     }
-   
+
 // }
 
 // console.log(curry(1)(2)(3))
 
+// 42. Memoize Function
+//  Write a function that memoizes the results of another function to avoid
+//  redundant calculations.
+//     Example: Memoize a Fibonacci function for faster computation.
+
+// const memoize = (fn) => {
+//   const cache = {}; // store previous result;
+//   return (n) => {
+//     if (cache[n])  return cache[n];
+
+//     const result = fn(n);
+//     cache[n] = result;
+//     return result;
+//   };
+// };
+
+// const Fibonacci = (n) => {
+//   let a = 0;
+//   let b = 1;
+//   if (n === 1) return [a];
+//   if (n === 2) return [a, b];
+//   let arr = [];
+//   arr.push(a);
+//   arr.push(b);
+//   for (let i = 2; i < n; i++) {
+//     let c = a + b;
+//     arr.push(c);
+//     a = b;
+//     b = c;
+//   }
+//   return arr;
+// };
+
+// const memoFn = memoize(Fibonacci);
+// console.log(memoFn(10));
+// console.log(memoFn(8));
+
+
+
+
+
+//  43. Debounce Function
+//  Implement a debounce function that limits the rate at which a function
+//     can fire.
+//         Example: Input: Function called 3 times in 300ms with 500ms debounce
+//  → Executes once after 500ms.
+
+// const debounce = (fn, delay) => {
+//    let timer; // store timeout od;
+//    return (...args) => {
+//     clearTimeout(timer);
+
+//     timer = setTimeout(() => {
+//         fn(...args);
+//     },delay)
+//    }
+// }
+
+// function Hello() {
+//     console.log("Hello")
+// }
+
+// const debounceHello = debounce(Hello, 500)
+// debounceHello()
+// debounceHello()
+// debounceHello()
 
 
 
@@ -96,28 +132,25 @@
 
 
 
-
-
-
+//  44. Throttle Function
+//  Implement a throttle function that ensures a function is called at most
+//  once every n milliseconds.
+//     Example: Input: Function called 5 times in 1000ms with 500ms throttle
+//  → Executes at most twice
 
 // 41. Counter Closure
 //  Create a function that returns a counter function, incrementing by 1
 // each call.
 //     Example: let counter = createCounter(); counter(); → Output: 1,
 //         counter(); → 2
-
-// const counter = () => {
-//     return 
+// let n = 0;
+// const createCounter = () => {
+//     n += 1
+//     return n;
 // }
-
-
-
-
-
-
-
-
-
+// console.log(createCounter());
+// console.log(createCounter());
+// console.log(createCounter())
 
 // 40. Intersection of Multiple Arrays
 //  Given multiple arrays, return an array of elements common to all arrays.
@@ -126,7 +159,7 @@
 // let arr = [[1, 2, 3], [2, 3, 4], [2, 3, 5]];
 // let obj = {};
 // for(let i=0; i<arr.length; i++){
-    
+
 //     for(let j=0; j<arr[i].length; j++){
 //        if(obj[arr[i][j]]) obj[arr[i][j]]++;
 //        else{
@@ -143,23 +176,11 @@
 // }
 // console.log(arr1)
 
-
-
-
-
-
-
-
-
-
-
-
-
 // 39. Top K Frequent Elements
 //  Given an array of numbers, return the k most frequent elements.
 //     Example: Input: [1, 1, 1, 2, 2, 3], k = 2 → Output: [1, 2]
 
-// let arr = [1, 1, 1, 2, 2, 3,3,3,3,3] 
+// let arr = [1, 1, 1, 2, 2, 3,3,3,3,3]
 // let k = 2;
 // let val = [];
 // let obj = {}
@@ -183,18 +204,6 @@
 // console.log(val[0], val[1])
 // console.log(obj)
 
-
-
-
-
-
-
-
-
-
-
-
-
 // 38. First Unique Character in Object
 //  Using an object, find the first unique character in a string.
 //     Example: Input: "loveleetcode" → Output: 2(character: v)
@@ -214,46 +223,45 @@
 
 // console.log(FirstUnique(str))
 
-
-
-
-
-
-
 // 37. Valid Anagram
 //  Given two strings, check if one is an anagram of the other.
 //     Example: Input: "anagram", "nagaram" → Output: true
 
-
 // let str1 = "anagram";
-// let str2 = "nagaram";
+// let str2 = "angaram";
 
-
+// let obj1 = {}
+// let obj2 = {}
 // const isAnagram = (str1, str2) => {
 
 //       if(str1.length !== str2.length) return false;
 //       for(let i=0; i<str1.length; i++){
-
+//          if(obj1[str1[i]]) obj1[str1[i]]++;
+//          else{
+//             obj1[str1[i]] = 1;
+//          }
 //       }
-
+//       for(let i=0; i<str2.length; i++){
+//          if(obj2[str2[i]]) obj2[str2[i]]++;
+//          else{
+//             obj2[str2[i]] = 1;
+//          }
+//       }
+//       let a = true;
+//       for(let val in obj1){
+//         if(obj1[val] !== obj2[val]) a = false;
+//       }
+//       return a;
 // }
-
-
-
-
-
-
-
-
-
-
+// console.log(isAnagram(str1, str2))
+// console.log(obj1)
+// console.log(obj2)
 
 // 36. Word Frequency
 //  Given a string, return an object with the frequency of each word.
 //     Example: Input: "hello world hello" → Output: {
 //         hello: 2, world: 1
 //     }
-
 
 // let str = "hello world hello"
 // let obj = {};
@@ -274,15 +282,6 @@
 
 // console.log(obj)
 
-
-
-
-
-
-
-
-
-
 // 35. Search in Rotated Sorted Array
 //  Given a sorted array rotated at some point, find if a target number
 // exists.
@@ -296,12 +295,6 @@
 //         console.log(i);
 //     }
 // }
-
-
-
-
-
-
 
 // 34. Remove Element
 //  Given an array and a value, remove all instances of that value and
@@ -321,24 +314,28 @@
 
 // console.log(arr1.length)
 
-
-
-
-
-
-
-
-
-
 // 33. Maximum Subarray
 //  Given an array of numbers, find the contiguous subarray with the
 //  largest sum.
 //     Example: Input: [-2, 1, -3, 4, -1, 2, 1, -5, 4] → Output: 6
 //         (subarray: [4, -1, 2, 1])
 
+// let arr = [-2, 1, -3, 4, -1, 2, 1, -5, 4]
+// let largeSum = []
+// let sum = 0;
+// for(let i=0; i<arr.length-3; i++){
+//     if(arr[i]+arr[i+1]+arr[i+2]+arr[i+3] > sum){
+//         sum = arr[i] + arr[i + 1] + arr[i + 2] + arr[i + 3];
+//         largeSum = [];
+//         largeSum.push(arr[i]);
+//         largeSum.push(arr[i+1]);
+//         largeSum.push(arr[i+2]);
+//         largeSum.push(arr[i+3]);
+//     }
+// }
 
-
-
+// console.log(largeSum)
+// console.log(sum )
 
 // 32. Merge Sorted Arrays
 //  Merge two sorted arrays into a single sorted array.
@@ -359,14 +356,12 @@
 
 // console.log(arr)
 
-
 // 31. Two Sum II
 //  Given a sorted array of numbers and a target sum, find two numbers
 //  that add up to the target.Return their indices.
 //     Example: Input: [2, 7, 11, 15], target = 9 → Output: [1, 2]
 
-
-// let arr = [2, 8, 4, 5, 11, 15] 
+// let arr = [2, 8, 4, 5, 11, 15]
 // let target = 9;
 // let arr1 = [];
 
@@ -378,7 +373,6 @@
 //        }
 //     }
 // }
-
 
 // console.log(arr1)
 
@@ -394,18 +388,77 @@
 
 // }
 
-
-
-
-
 // 28. Longest Palindromic Substring
 //  Given a string, find the longest substring that is a palindrome.
 //     Example: Input: "babad" → Output: "bab" or "aba"
 
+// function longestPalindrome(s) {
+//     if (s.length < 2) return s;  // if string has 1 letter, it's itself a palindrome
 
+//     let longest = "";  // to store the longest palindrome
 
+//     // helper function to check palindrome
+//     function expandFromCenter(left, right) {
+//         while (left >= 0 && right < s.length && s[left] === s[right]) {
+//             left--;
+//             right++;
+//         }
+//         return s.slice(left + 1, right); // return the palindrome part
+//     }
 
+//     for (let i = 0; i < s.length; i++) {
+//         // check for odd-length palindrome (like "aba")
+//         let odd = expandFromCenter(i, i);
 
+//         // check for even-length palindrome (like "abba")
+//         let even = expandFromCenter(i, i + 1);
+
+//         // pick the longer one
+//         let longer = odd.length > even.length ? odd : even;
+
+//         // update the result
+//         if (longer.length > longest.length) {
+//             longest = longer;
+//         }
+//     }
+
+//     return longest;
+// }
+
+// console.log(longestPalindrome("babad")); // Output: "bab" or "aba"
+
+/**
+ * @param {string} colors
+ * @param {number[]} neededTime
+ * @return {number}
+ */
+// var minCost = function (colors, neededTime) {
+//     let timeTaken = 0;
+//     for (let i = 0; i < colors.length; i++) {
+//         if(colors[i] === colors[i+1]){
+//             if(neededTime[i] > neededTime[i+1]) timeTaken += neededTime[i];
+//             else timeTaken += neededTime[i+1]
+//         }
+//         else {
+
+//         }
+//     }
+//     console.log(timeTaken)
+
+//     let totalTimeTaken = 0;
+//     for (let i = 0; i < neededTime.length; i++) {
+//         totalTimeTaken += neededTime[i];
+
+//     }
+//     console.log(totalTimeTaken)
+
+//     return totalTimeTaken - timeTaken;
+
+// };
+
+// let colors = "aabaa";
+// let  neededTime = [1, 2, 3, 4, 1]
+// console.log(minCost(colors, neededTime))
 
 // 29. Valid Parentheses
 //  Given a string containing parentheses, check if they are valid(properly
@@ -426,69 +479,37 @@
 //     console.log("Invalid")
 // }
 
-
-
-
-
-
-
-
-
-
-
-
-
 // 30. String Compression
 //  Given a string, compress it by counting consecutive characters.
 //     Example: Input: "aabcccccaaa" → Output: "a2b1c5a3"
 
-
 // let str = "aabcccccaaa";
 // let str2 = "";
-
+// let count  = 1;
 // for(let i=0; i<str.length; i++){
-//     let count = 0;
-//     for(let j=0; j<str.length; j++){
-//         if(str[i] === str[j]) count++;
+//     if(str[i] === str[i+1]) count++;
+//     else{
+//         str2 = str2+str[i]+count;
+//         count = 1;
 //     }
-    
-//     str2 = str2+str[i]+count;
 // }
 // console.log(str2)
-
-
-
-
-
-
-
-
-
 
 // 26. Longest Substring Without Repeating Characters
 //  Given a string, find the length of the longest substring without
 //  repeating characters.
-//     Example: Input: "abcabcbb" → Output: 3(substring: "abc")
+//     Example: Input: "abcefgabcbb" → Output: 3(substring: "abc")
 
-// let str = "abcabcbb"
-// for(let i = 0; i<str.length; i++){
+// let str = "abcefghabcbb"
+// let val = "";
+// for(let i = 0; i<str.length-1; i++){
+//     if(str[i] !== str[i+1]){
+//         if(!val.includes(str[i])) val += str[i]
+//     }
 
 // }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// console.log(val)
+// console.log(val.length)
 
 // 25. Capitalize Words
 //  Given a string, capitalize the first letter of each word.
@@ -496,34 +517,21 @@
 
 // let str = "hello world my raja";
 
-
 // for(let i=0; i<str.length; i++){
-  
+
 //     if(i === 0){
 //         let val = str[i].toLocaleUpperCase()
-        
+
 //         str = str.replace(str[i], val)
 //     }
 //     if(str[i] === " "){
 //         let val = str[i+1].toLocaleUpperCase();
-     
+
 //         str = str.replace(str[i+1], val)
 //     }
-   
+
 // }
 // console.log(str)
-
-
-
-
-
-
-
-
-
-
-
-
 
 // 24. Power of Two
 //  Given a number, return true if it is a power of two.
@@ -542,16 +550,8 @@
 //    }
 //    return false;
 
-
-
 // }
 // console.log(PowerTwo(6))
-
-
-
-
-
-
 
 // 23. Is Prime Number
 //  Write a function to check if a number is prime.
@@ -569,19 +569,10 @@
 // }
 // console.log(IsPrime(11))
 
-
-
-
-
-
-
-
 // 22. Fibonacci Sequence
 //  Given a number n, return the first n numbers of the Fibonacci
 // sequence.
 //     Example: Input: 6 → Output: [0, 1, 1, 2, 3, 5]
-
-
 
 // const FibonacciSequence = (n) => {
 //     let arr = [];
@@ -604,7 +595,6 @@
 //             arr.push(c);
 //             a = b;
 //             b = c;
-            
 
 //         }
 //     }
@@ -613,43 +603,22 @@
 
 // console.log(FibonacciSequence(5))
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // 21. Factorial
 //  Write a function to compute the factorial of a number.
 //     Example: Input: 5 → Output: 120
 
 // const Factorial = (n) => {
-    
+
 //     // for(let i=n; i>1; i--){
 //     //     pro = pro * i;
 //     // }
 //     // return pro
-
 
 //     // recurrion
 //     if(n==1) return 1;
 //      return n*Factorial(n-1)
 // }
 // console.log(Factorial(5))
-
-
-
-
-
-
 
 // 20. Flatten Array
 //  Given a nested array, flatten it into a single - level array.
@@ -671,22 +640,10 @@
 // FlatterArray(arr);
 // console.log(arr1)
 
-
-
-
-
-
-
-
-
-
-
-
 // 19. Chunk Array
 //  Given an array and a size, split the array into subarrays of the given size.
 //     Example: Input: [1, 2, 3, 4, 5], size = 2 → Output: [[1, 2], [3,
 //         4], [5]]
-
 
 // let arr = [1, 2, 3, 4, 5, 3, 4,3,5];
 // let arr1 = [];
@@ -708,39 +665,16 @@
 // }
 // console.log(arr1)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // 18. Find Second Largest
 //  Given an array of numbers, find the second largest number.
 //     Example: Input: [10, 5, 8, 12] → Output: 10
-
 
 // let arr = [10, 5, 8, 1];
 // let firstMax = 0;
 // let secondMax = 0;
 // for(let i = 0; i<arr.length; i++){
 //    if(firstMax< arr[i]) firstMax = arr[i];
-   
-  
+
 // }
 
 // for(let j=0; j<arr.length; j++){
@@ -748,24 +682,6 @@
 // }
 
 // console.log(secondMax)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // 17. Product of Array Except Self
 //  Given an array of numbers, return an array where each element is the
@@ -787,18 +703,10 @@
 
 // console.log(arr1)
 
-
-
-
-
-
-
-
 // 16. Contains Duplicate
 //  Given an array of numbers, return true if any value appears at least
 // twice.
 //     Example: Input: [1, 2, 3, ] → Output: true
-
 
 // const IsDup = (arr) => {
 //    for(let i=0; i<arr.length; i++){
@@ -814,24 +722,6 @@
 // }
 // let arr = [1,2,3,2];
 // console.log(IsDup(arr))
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // 15. Sum of Two Numbers
 //  Given an array of numbers and a target sum, return the indices of two
@@ -850,12 +740,6 @@
 //     }
 // }
 // console.log(value)
-
-
-
-
-
-
 
 // 14. Array Intersection
 //  Given two arrays, return an array of their common elements.
@@ -876,15 +760,6 @@
 //     }
 // }
 
-
-
-
-
-
-
-
-
-
 // 13. Move Zeros
 //  Given an array of numbers, move all zeros to the end while maintaining
 //  the relative order of non - zero elements.
@@ -904,17 +779,9 @@
 //     else{
 //         start++;
 //     }
-  
-    
+
 // }
 // console.log(arr)
-
-
-
-
-
-
-
 
 // 12. Find Missing Number
 //  Given an array of numbers from 1 to n with one number missing, find
@@ -932,60 +799,38 @@
 // console.log(MaxVal)
 // let total_Sum = 0;
 // for(let i=1; i<=MaxVal; i++){
-//     total_Sum = total_Sum + i;    
+//     total_Sum = total_Sum + i;
 // }
 
 // console.log(total_Sum - sumVal)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 //  11. Rotate Array
 //  Given an array and a number k , rotate the array to the right by k
 //  steps.
 //  Example: Input: [1, 2, 3, 4, 5], k = 2 → Output: [4, 5, 1, 2, 3]
 
+// let str = [1, 2, 3, 4, 5]
+// let k = 2;
+// const reverse = (start, end) => {
 
+//     while(start<=end){
+//         let a = str[start];
+//         str[start] = str[end];
+//         str[end] = a;
+//         start++;
+//         end--;
+//     }
+//     // return str;
+// }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// let start = 0;
+// let end = str.length-1;
+// reverse(start, end)
+// console.log(str)
+// reverse(start, (start+k)-1)
+// console.log(str)
+// reverse((start+k), end)
+// console.log(str)
 
 //10
 // const firstNon = (str) => {
